@@ -56,3 +56,12 @@ product_category_name, product_category_name_english
 - Use UTC for all timestamps
 - Order status values: delivered, shipped, canceled, unavailable,
   invoiced, processing, created, approved
+
+## Known Data Quality Issues
+- ~189 orders have impossible date sequences (carrier/delivery before purchase). Exclude from delivery-time analysis.
+- 14 delivered orders have null order_approved_at.
+- 8 delivered orders have null delivery dates.
+- 1 delivered order has no payment record.
+- 775 canceled/unavailable orders have no order_items — expected.
+- reviews: review_id is NOT unique (789 duplicates). 547 orders have multiple reviews. Deduplicate or GROUP BY when computing review metrics.
+- AOV must use: SUM(order_items.price for delivered) / COUNT(DISTINCT delivered order_id). Confirmed value ~R$160. If you get ~R$137, the denominator is wrong.
