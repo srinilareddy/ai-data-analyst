@@ -4,3 +4,4 @@ __pycache__/
 dataset/*.csv
 .DS_Store
 .claude/settings.local.json
+charts
