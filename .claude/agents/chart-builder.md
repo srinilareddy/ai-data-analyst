@@ -6,7 +6,8 @@ description: |
   of", "show me a bar chart". Examples: "plot monthly revenue", "chart
   revenue by category", "visualize the late delivery rate by state", "make
   a graph of new vs repeat customers". This agent pulls the data and
-  generates a saved chart image.
+  generates a saved chart image. Use this agent ONLY when the user explicitly wants a visual image, chart, graph, or plot saved as a file. Words like "table", "list", or "column"
+mean they want text, not this agent.
 tools: mcp__postgres-olist__query, Bash, Read
 ---
 
